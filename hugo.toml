@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://dev.itinerant.game/'
 languageCode = 'en-us'
-title = 'My New Hugo Project'
-theme = 'mana'
+title = 'Itinerant Dev Blog'
+theme = 'PaperMod'
