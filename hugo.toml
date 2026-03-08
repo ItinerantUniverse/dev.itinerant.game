@@ -2,3 +2,7 @@ baseURL = 'https://dev.itinerant.game/'
 languageCode = 'en-us'
 title = 'Itinerant Dev Blog'
 theme = 'PaperMod'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
