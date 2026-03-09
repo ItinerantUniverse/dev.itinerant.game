@@ -19,7 +19,7 @@ The game didn't really get going - the funding never came through. But I did wri
 
 Suddenly I found myself wanting to write a game again and, even though that project failed, the idea of an open world game with planets, stars - a whole universe - stayed with me. I kept trying to put that idea aside and write simpler games that seemed more in-keeping with a solo developer working alone. A solo developer working alone can't build an immersive open-world game with Earth-sized planets, right?
 
-But every time I tried to write something more.. achievable.. I got bored and went back to my procedural terrain stuff. I just loved working on it. But I never seemed to progress past some fancy graphics and a really vague idea of what I was doing.
+But every time I tried to write something more.. achievable.. I got found myself going back to my procedural terrain stuff. I just loved working on it. But I never seemed to progress past some fancy graphics and a really vague idea of what I was doing.
 
 Then around 5 or 6 years ago I hit on why I wasn't really getting anywhere with my ideas. I was getting stuck in a loop writing fancy procedural worlds that looked great, but then I'd run into roadblocks like, how do I make caves, or holes in the ground? How do I have multiple layers of geology? How do I save changes back to a server? What is the game actually about anyway? I was just making ray-traced clouds in the sky and neat shadows on land but that was it.
 
