@@ -37,6 +37,10 @@ What I was telling myself is that I wanted to write a game that could potentiall
 
 For example, a desert on planet Earth can be somewhere really hot like the Gobi desert, or it can be somewhere really cold like Antarctica. Both are deserts but they look completely different and support different types of life. I figure there should be a way of predicting what appears at any point on a planet that doesn't involve looking it up on a list of biomes. Even if you have 20 or 30 biomes, once you've found all of them, it doesn't matter how many billions of procedural planets your game has, you've found everything that's worth finding and anything else is just going to be a repeat of the biomes you already discovered.
 
-I realised that if I was to stand a chance of building realistic-looking procedural worlds that could look and work more like planet Earth, really the best place for me to start would be to build everything I needed to actually render planet Earth itself.
+I realised that if I was to stand a chance of building realistic-looking procedural worlds that could look and work more like planet Earth, really the best place for me to start would be to build everything I needed to actually render planet Earth itself. Understanding this gave me a different challenge based around trying to come up with data structures that were able to describe surfaces (and underlying geology) that resembled real-life planets like the Earth.
 
-That's how I got started on what has become Itinerant. It's changed along the way and I've slowly focused it down, but the core of it is less about rendering fancy graphics and more about having a data system that can store relevant parameters about a planet at any point on it's surface - elevation, objects and plantlife that might exist, atmosphere content, wind direction, geology in the ground, support for caves and overhangs, right up to where the planet is in space, how it is spinning around a star and how light from that star affects it's temperature and weather patterns (and then of course how those weather patterns affect what is actually growing on the ground).
+That's how I got started on what has become Itinerant. It gave me a set focus that turned into a core philosophy that's helped me continually move forward with the game development and break out of the loop I'd been in:
+
+1. Always do the difficult stuff first.
+2. Don't get distracted by shiny things.
+3. Let the game develop in its own time - there's no need to have all the answers right away.
