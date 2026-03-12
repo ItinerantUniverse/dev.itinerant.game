@@ -7,7 +7,7 @@ draft: false
 tags: []
 categories: []
 ---
-It's difficult to know where to get started writing about Itinerant. It's something that's existed in some form or other for the past 10 - 15 years.
+It's difficult to know where to get started writing about Itinerant. It's existed in some form or other for the past 10 - 15 years.
 
 I first got started writing software in the 1980's when I was a kid. I was lucky in that my Dad always had computers in the house. One of my earliest memories is playing an instruments-only flight simulator on a ZX81. I must have been 5 or 6 years old. I started coding not long after. You kind of had to code to really do anything with a computer back then, and it fascinated me.
 
