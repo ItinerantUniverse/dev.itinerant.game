@@ -3,7 +3,7 @@ title: Basic Concepts
 description: "What do I want Itinerant to be like to play?"
 date: 2026-03-09T23:07:47.208Z
 preview: ""
-draft: false
+draft: true
 tags: []
 categories: []
 ---
