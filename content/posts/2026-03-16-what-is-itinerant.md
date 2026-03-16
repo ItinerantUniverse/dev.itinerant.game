@@ -3,7 +3,7 @@ title: What is Itinerant?
 description: ""
 date: 2026-03-16T16:06:47.598Z
 preview: ""
-draft: false
+draft: true
 tags: []
 categories: []
 ---
@@ -15,4 +15,3 @@ categories: []
 - Rich abundance of planetary objects including flora which can grow and change over time.
 - Modular architecture that allows new objects/materials/geology to be added by game developer and third parties.
 - Component-based technology that allows pieces of equipment to be connected together to make functional machines and computers.
-- 
