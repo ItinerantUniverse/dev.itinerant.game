@@ -25,7 +25,7 @@ _The Technical Side_
 
 _The Story_
 
-- Set in the distant future, humanity has been scattered throughout the solar system. Earth cannot be contacted, but nobody konws why. Surviving colonies in different parts of space are all cut off from one another.
+- Set in the distant future, humanity has been scattered throughout the solar system. Earth cannot be contacted and nobody knows why. Surviving colonies in different parts of space are all cut off from one another.
 - A three-part release strategy will open up various parts of space before unifying them all together:
     - Part 1: Set on Mars
     - Part 2: Set in the Kuiper Belt
