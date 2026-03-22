@@ -31,3 +31,4 @@ _The Story_
     - Part 2: Set in the Kuiper Belt
     - Part 3: Set on Titan with the aim of eventually landing on a fully=explorable planet Earth, as well as exploring the rest of the Solar System.
 - A persistent universe is important - for example, whatever gets built on Mars by the players will be there in some form (or parts of it will) when the final game opens up for full space travel at the end of Part 3.
+- Technology is a strange mix of retro and futuristic devices - given the 'far future' timeframe, it is assumed that civilization has fallen and been rebuilt several times since present day. Therefore, some progress has been lost while other technologies have continued to improve.
