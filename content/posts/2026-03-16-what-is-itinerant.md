@@ -7,7 +7,7 @@ draft: true
 tags: []
 categories: []
 ---
-There are two sides to Itinerant. One is the engine that will power the game, and the capabilities I believe it needs to have. To be honest this has always been the side that I have a more tangible and fixed vision for. It's the things about how the game needs to work, the more technical side. The other side of it is the story I'm trying to tell. This has changed multiple times and I'm sure will continue to evolve, but it's getting closer to a complete vision.
+There are two sides to Itinerant. One is the engine that will power the game, and the capabilities I believe it needs to have. To be honest this has always been the side that I have a more tangible and fixed vision for. It's the things about how the game needs to work; the more technical side. The other side of it is the story I'm trying to tell. This has changed multiple times and I'm sure will continue to evolve, but it's getting closer to a complete vision.
 
 I intend to write a blog post expanding on each of these points below. As I do, I'll link through to them on here.
 
@@ -22,6 +22,7 @@ _The Technical Side_
 - Component-based technology that allows pieces of equipment to be connected together to make functional machines and computers.
 - Open server architecture to allow third parties to create their own planets/star systems with different terrain generation/plant generation mechanisms.
 - Community modding and content creation should be encouraged and supported.
+- Whilst the game focuses on our Solar System, it should be possible for additional systems to be added to the game, potentially by third parties running their own servers.
 
 _The Story_
 
