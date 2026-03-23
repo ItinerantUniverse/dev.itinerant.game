@@ -90,5 +90,103 @@ First of all, I thought I'd have to just create more properties - have an output
 
 Arguably you could say this is fairly close to reality, as you need two connections tho light a light buil up (you'll need a positive and a negative signal). But it doesn't make sense from a user experience perspective, unless you're an electrician, that you are connecting an output from the battery to the light bulb and then another output from the light bulb back to the battery. Normal every day users are accustomed to having one cable that contains several wires, and you just connect up that one cable for everything to work.
 
-This made me realise that what I really want is a 'connection group' that can be made up of several inputs and outputs. These connection groups are subcomponents that can contain any number of inputs and outputs, and the whole thing remains transparent to the user, who only sees an output that can be connected to an input. This led me to the following code:
+This made me realise that what I really want is a 'connection group' that can be made up of several inputs and outputs. These connection groups are subcomponents that can contain any number of inputs and outputs, and the whole thing remains transparent to the user, who only sees an output that can be connected to an input. This led me to the following code...
 
+We have a PowerOutput sumcomponent:
+```
+    public class PowerOutput : ComponentBase, IPowerOut
+    {
+        private float _powerAvailable;
+        public float PowerAvailable
+        {
+            get
+            {
+                return _powerAvailable;
+            }
+            set
+            {
+                if (value != _powerAvailable)
+                {
+                    _powerAvailable = value;
+                    OnPropertyChanged("PowerProvided");
+                }
+            }
+        }
+        private float _powerRequested = 0;
+        public float PowerProvided { get => Math.Min(PowerAvailable, _powerRequested); }
+        public event EventHandler<float>? OnPowerRequestChanged;
+
+        public float PowerRequested
+        {
+            get => _powerRequested;
+            set
+            {
+                if (_powerRequested != value)
+                {
+                    _powerRequested = value;
+                    OnPowerRequestChanged?.Invoke(this, value);
+                }
+            }
+        }
+
+        public override void Dispose()
+        {
+            
+        }
+    }
+```
+
+PowerInput:
+```
+public class PowerInput : ComponentBase, IPowerIn
+{
+    //private Action<float>? _onPowerProvidedUpdate;
+    public event EventHandler<float> OnPowerProvided_Changed;
+
+    private float _powerRequested;
+    private float _powerProvided;
+    public float PowerProvided
+    {
+        get
+        {
+            return _powerProvided;
+        }
+        set
+        {
+            if (_powerProvided != value)
+            {
+                _powerProvided = value;
+
+                OnPowerProvided_Changed?.Invoke(this, _powerProvided);
+            }
+        }
+    }
+
+    public float PowerRequested
+    {
+        get => _powerRequested;
+        set
+        {
+            if (value != _powerRequested)
+            {
+                _powerRequested = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    public override void Dispose()
+    {
+
+    }
+
+    public PowerInput(float powerRequested)
+    {
+        _powerRequested = powerRequested;
+    }
+}
+```
+
+So, the PowerOutput has a 'PowerAvailable' (in Watts) property that the parent component (the generator) can set saying how much power is currenly availabls. It also has a 'PowerProvided' output that will go to the device saying how much power it actually delivers, and a 'PowerRequested' input from the device tell us how much power the device actually wants.
+
+Similarly, the PowerInput side has a 'PowerProvided' input connection telling the receiving side how much energy it actually gets, and a 'PowerRequested' output that gets sent to the power source telling it how much power it shuold deliver (if it can).
