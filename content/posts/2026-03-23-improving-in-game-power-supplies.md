@@ -190,3 +190,76 @@ public class PowerInput : ComponentBase, IPowerIn
 So, the PowerOutput has a 'PowerAvailable' (in Watts) property that the parent component (the generator) can set saying how much power is currenly availabls. It also has a 'PowerProvided' output that will go to the device saying how much power it actually delivers, and a 'PowerRequested' input from the device tell us how much power the device actually wants.
 
 Similarly, the PowerInput side has a 'PowerProvided' input connection telling the receiving side how much energy it actually gets, and a 'PowerRequested' output that gets sent to the power source telling it how much power it shuold deliver (if it can).
+
+So now we can have a battery like this:
+
+```
+/// <summary>
+/// Radioisotope Thermoelectric Generator
+/// </summary>
+public class RTG : ComponentBase
+{
+    /// <summary>
+    /// The instantaneous amount of power the battery can provide, in Watts, assuming it is fully charged.
+    /// </summary>
+    [ComponentSetting]
+    public float InstantPower { get; set; } = 400f;
+
+    [ComponentOutput(ConnectionGroup: true)]
+    public PowerOutput PowerSupply1 { get; set; }
+
+    [ComponentOutput(ConnectionGroup: true)]
+    public PowerOutput PowerSupply2 { get; set; }
+
+    [ComponentOutput(ConnectionGroup: true)]
+    public PowerOutput PowerSupply3 { get; set; }
+
+    [ComponentOutput(ConnectionGroup: true)]
+    public PowerOutput PowerSupply4 { get; set; }
+
+    public RTG()
+    {
+        PowerSupply1 = new PowerOutput() { PowerAvailable = InstantPower };
+        PowerSupply1.OnPowerRequestChanged += PowerSupply_OnPowerRequestChanged;
+        PowerSupply2 = new PowerOutput() { PowerAvailable = InstantPower };
+        PowerSupply2.OnPowerRequestChanged += PowerSupply_OnPowerRequestChanged;
+        PowerSupply3 = new PowerOutput() { PowerAvailable = InstantPower };
+        PowerSupply3.OnPowerRequestChanged += PowerSupply_OnPowerRequestChanged;
+        PowerSupply4 = new PowerOutput() { PowerAvailable = InstantPower };
+        PowerSupply4.OnPowerRequestChanged += PowerSupply_OnPowerRequestChanged;
+    }
+
+    private void PowerSupply_OnPowerRequestChanged(object? sender, float e)
+    {
+        var totalPowerRequired = PowerSupply1.PowerRequested + PowerSupply2.PowerRequested + PowerSupply3.PowerRequested + PowerSupply4.PowerRequested;
+
+        if (totalPowerRequired < InstantPower)
+        {
+            // The total required is less than the maximum we can provide, so just let all the power be delivered.
+            PowerSupply1.PowerAvailable = PowerSupply1.PowerRequested;
+            PowerSupply2.PowerAvailable = PowerSupply2.PowerRequested;
+            PowerSupply3.PowerAvailable = PowerSupply3.PowerRequested;
+            PowerSupply4.PowerAvailable = PowerSupply4.PowerRequested;
+        }
+        else
+        {
+            // otherwise we need to distribute whatever power we have across all devices
+            var dropFactor = InstantPower / totalPowerRequired;
+            PowerSupply1.PowerAvailable = PowerSupply1.PowerRequested * dropFactor;
+            PowerSupply2.PowerAvailable = PowerSupply2.PowerRequested * dropFactor;
+            PowerSupply3.PowerAvailable = PowerSupply3.PowerRequested * dropFactor;
+            PowerSupply4.PowerAvailable = PowerSupply4.PowerRequested * dropFactor;
+        }
+    }
+
+    public override void Dispose()
+    {
+        PowerSupply1.OnPowerRequestChanged -= PowerSupply_OnPowerRequestChanged;
+        PowerSupply2.OnPowerRequestChanged -= PowerSupply_OnPowerRequestChanged;
+        PowerSupply3.OnPowerRequestChanged -= PowerSupply_OnPowerRequestChanged;
+        PowerSupply4.OnPowerRequestChanged -= PowerSupply_OnPowerRequestChanged;
+    }
+}
+```
+
+This is a 
